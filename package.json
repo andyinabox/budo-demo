@@ -1,7 +1,7 @@
 {
   "name": "budo-demo",
-  "version": "0.1.0",
-  "description": "A tool for quickly sharing projects using the budo development server",
+  "version": "0.0.2",
+  "description": "A tool for quickly building budo projects",
   "main": "index.js",
   "bin": {
     "budo-demo": "./bin/cmd.js"
