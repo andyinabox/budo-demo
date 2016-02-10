@@ -1,6 +1,6 @@
 {
   "name": "budo-demo",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "A tool for quickly sharing projects using the budo development server",
   "main": "index.js",
   "bin": {
@@ -12,7 +12,13 @@
   "author": "Andy Dayton <amdayton@gmail.com> (http://andydayton.com/)",
   "license": "MIT",
   "dependencies": {
+    "browserify": "^13.0.0",
+    "glob-cp": "^1.0.4",
+    "minify-css-stream": "^0.1.0",
     "minimist": "^1.2.0",
+    "mkdirp": "^0.5.1",
+    "rimraf": "^2.5.1",
+    "simple-html-index": "^1.1.2",
     "xtend": "^4.0.1"
   }
 }

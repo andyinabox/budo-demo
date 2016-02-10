@@ -24,19 +24,23 @@ CLI
 
 ```
 Usage:
-	budo index.js [opts] -- [browserify opts]
+	budo-demo index.js [opts] -- [browserify opts]
 
 Options:
  --help, -h       show help message
- --version        show version
- --dest           name of build destination directory
- --include        files and directories to include in build
- --title          optional title for default index.html
- --css            optional stylesheet href for default index.html
- --publish        publish to github pages
- --clean          remove publish directory when finished
- --minify       minify css and uglify js
- --uglifyjs       uglify js only
- --minifycss      minify css only
+ --dest, -o       name of build destination directory
+ --include, -i    files and directories to include in build
+ --title, -t      optional title for default index.html
+ --css, -c        optional stylesheet href for default index.html
+ --minify         minify css
  
 ```
+
+Todo
+----
+
+- [ ] Add publish capability?
+- [ ] Allow for custom html
+- [ ] Integrated js uglification?
+- [ ] Test browserify transforms
+- [ ] Write tests
