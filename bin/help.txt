@@ -1,0 +1,15 @@
+Usage:
+	budo index.js [opts] -- [browserify opts]
+
+Options:
+ --help, -h       show help message
+ --version        show version
+ --dest           name of build destination directory
+ --include, -i    files and directories to include in build
+ --title          optional title for default index.html
+ --css            optional stylesheet href for default index.html
+ --publish        publish to github pages
+ --clean          remove publish directory when finished
+ --minify         minify css and uglify js
+ --uglifyjs       uglify js only
+ --minifycss      minify css only
