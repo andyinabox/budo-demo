@@ -1,6 +1,6 @@
 {
   "name": "budo-demo",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "A tool for quickly building budo projects",
   "main": "index.js",
   "bin": {

@@ -54,12 +54,14 @@ function budoDemoCLI(args, opts) {
       .pipe(fs.createWriteStream(path.join(dest, entry)));
 
     // html
-    var h = html({
-        title: argv.title
-        , css: argv.css
-        , entry: entry
-      })
-      .pipe(fs.createWriteStream(path.join(dest, 'index.html')));
+    if(!argv.nohtml) {
+      var h = html({
+          title: argv.title
+          , css: argv.css
+          , entry: entry
+        })
+        .pipe(fs.createWriteStream(path.join(dest, 'index.html')));
+    }
 
     // css
     if(argv.css) {
@@ -79,21 +81,7 @@ function budoDemoCLI(args, opts) {
       fs.writeFileSync(path.join(dest, 'CNAME'), argv.cname, 'utf8');
     }
 
-    // publish to gh-pages
-   //  if(argv.publish) {
-   //    console.log('publish with gh pages', path.join(cwd, dest));
-   //    ghpages.publish(path.join(cwd, dest), function(err) {
-   //      if(err) throw new Error(err);
-   //      console.log('published?');
-   //    });
-   //  }
 
-    // // remove publish directory
-    // if(argv.clean) {
-    //  rimraf(path.join(cwd, dest), {}, function(err){
-   //      if(err) throw new Error(err);
-   //    });
-    // }
   });
 
 } 
