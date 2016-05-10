@@ -47,6 +47,7 @@ Options:
  --title, -t      optional title for default index.html
  --css, -c        optional stylesheet href for default index.html
  --minify         minify css
+ --cname					add a `CNAME` file with domain (for gh-pages)
  
 ```
 

@@ -75,6 +75,10 @@ function budoDemoCLI(args, opts) {
 
     }
 
+    if(argv.cname) {
+      fs.writeFileSync(path.join(dest, 'CNAME'), argv.cname, 'utf8');
+    }
+
     // publish to gh-pages
    //  if(argv.publish) {
    //    console.log('publish with gh pages', path.join(cwd, dest));
