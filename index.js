@@ -49,7 +49,7 @@ function budoDemoCLI(args, opts) {
     }
 
     // bundleJs
-    var bundler = createBundler(path.join(cwd, entry), argv.browserifyArgs);
+    var bundler = createBundler(path.join(cwd, entry), browserifyArgs);
     bundler.bundle()
       .pipe(fs.createWriteStream(path.join(dest, entry)));
 
@@ -76,11 +76,6 @@ function budoDemoCLI(args, opts) {
       }
 
     }
-
-    if(argv.cname) {
-      fs.writeFileSync(path.join(dest, 'CNAME'), argv.cname, 'utf8');
-    }
-
 
   });
 
