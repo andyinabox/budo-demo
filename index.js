@@ -16,6 +16,7 @@ module.exports.cli = budoDemoCLI;
 
 function budoDemoCLI(args, opts) {
   var argv = parseArgs(args, opts);
+  var include = Array.isArray(argv.include) ? argv.include : [argv.include];
 
   // console.log('budo-demo CLI');
   // console.log(argv);
@@ -40,13 +41,6 @@ function budoDemoCLI(args, opts) {
   mkdirp(dest, function(err) {
     if(err) throw new Error(err);
 
-    // copy included files    
-    if(argv.include) {
-      var include = Array.isArray(argv.include) ? argv.include : [argv.include];
-      include.forEach(function(f) {
-        cp.sync(path.join(cwd, f), path.join(dest, f));
-      });     
-    }
 
     // bundleJs
     var bundler = createBundler(path.join(cwd, entry), browserifyArgs);
@@ -54,7 +48,11 @@ function budoDemoCLI(args, opts) {
       .pipe(fs.createWriteStream(path.join(dest, entry)));
 
     // html
-    if(!argv.nohtml) {
+    if(fs.existsSync(path.join(cwd, 'index.html'))) {
+      // use existing html file
+      include.push('index.html');
+    } else {
+      // create html file
       var h = html({
           title: argv.title
           , css: argv.css
@@ -62,6 +60,14 @@ function budoDemoCLI(args, opts) {
         })
         .pipe(fs.createWriteStream(path.join(dest, 'index.html')));
     }
+
+    // copy included files    
+    if(argv.include && argv.include.length) {
+      include.forEach(function(f) {
+        cp.sync(path.join(cwd, f), path.join(dest, f));
+      });     
+    }
+
 
     // css
     if(argv.css) {
