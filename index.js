@@ -45,7 +45,7 @@ function budoDemoCLI(args, opts) {
     // bundleJs
     var bundler = createBundler(path.join(cwd, entry), browserifyArgs);
     bundler.bundle()
-      .pipe(fs.createWriteStream(path.join(dest, entry)));
+      .pipe(fs.createWriteStream(path.join(dest, path.basename(entry))));
 
     // html
     if(fs.existsSync(path.join(cwd, 'index.html'))) {
@@ -72,7 +72,7 @@ function budoDemoCLI(args, opts) {
     // css
     if(argv.css) {
       var cssRead = fs.createReadStream(path.join(cwd, argv.css));
-      var cssWrite = fs.createWriteStream(path.join(dest, argv.css));
+      var cssWrite = fs.createWriteStream(path.join(dest, path.basename(argv.css)));
       var c;
 
       if(argv.minify) {
