@@ -55,8 +55,8 @@ function budoDemoCLI(args, opts) {
       // create html file
       var h = html({
           title: argv.title
-          , css: argv.css
-          , entry: entry
+          , css: path.basename(argv.css)
+          , entry: path.basename(entry)
         })
         .pipe(fs.createWriteStream(path.join(dest, 'index.html')));
     }
